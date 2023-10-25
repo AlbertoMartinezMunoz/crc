@@ -7,15 +7,6 @@ template<typename T>
 class Crc
 {
 public:
-    Crc(const T *lookupTable, const T finalXorRemainder) :
-        m_lookupTable(lookupTable),
-        m_finalXorRemainder(finalXorRemainder)
-    {}
-
-    virtual uint8_t reflectData(uint8_t data) = 0;
-
-    virtual T reflectRemainder(T data) = 0;
-
     T computeCrc(const uint8_t *buffer, const std::size_t size)
     {
         uint16_t remainder = 0xFFFF;
@@ -30,6 +21,16 @@ public:
         remainder = reflectRemainder(remainder) ^ m_finalXorRemainder;
         return remainder;
     }
+
+protected:
+    Crc(const T *lookupTable, const T finalXorRemainder) :
+        m_lookupTable(lookupTable),
+        m_finalXorRemainder(finalXorRemainder)
+    {}
+
+    virtual uint8_t reflectData(uint8_t data) = 0;
+
+    virtual T reflectRemainder(T data) = 0;
 
     T reflect(T data, uint8_t nBits) {
         T reflection = 0x00000000;
