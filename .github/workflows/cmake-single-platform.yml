@@ -27,7 +27,7 @@ jobs:
       with:
         submodules: 'true'
 
-    - name: apt install dependency
+    - name: Install Dependencies
       run: sudo apt-get -y install valgrind
 
     - name: UnitTesting
