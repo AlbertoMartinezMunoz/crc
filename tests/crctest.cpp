@@ -12,7 +12,7 @@ public:
 
 TEST_F(NamedPipeTest, createfifo)
 {
-    EXPECT_TRUE(true);
+    EXPECT_TRUE(false);
 }
 
 int main(int argc, char **argv)
