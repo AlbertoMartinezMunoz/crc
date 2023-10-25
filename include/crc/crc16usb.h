@@ -6,16 +6,20 @@
 class Crc16Usb : public Crc<uint16_t>
 {
 public:
+    /**
+     * Will construct a CRC class of type CRC16/USB
+     */
     Crc16Usb() : Crc<uint16_t>(m_lookupTable, m_finalXorValue) {}
 
+private:
     uint8_t reflectData(uint8_t data) override
     {
         return Crc<uint16_t>::reflect(data, 8);
     }
 
-    uint16_t reflectRemainder(uint16_t data) override
+    uint16_t reflectRemainder(uint16_t remainder) override
     {
-        return Crc<uint16_t>::reflect(data, Crc::m_typeBits);
+        return Crc<uint16_t>::reflect(remainder, Crc::m_typeBits);
     }
 
 private:
