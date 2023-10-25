@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-class NamedPipeTest : public ::testing::Test
+class CrcTest : public ::testing::Test
 {
 public:
     virtual void SetUp()
@@ -10,7 +10,7 @@ public:
     {}
 };
 
-TEST_F(NamedPipeTest, createfifo)
+TEST_F(CrcTest, true)
 {
     EXPECT_TRUE(true);
 }

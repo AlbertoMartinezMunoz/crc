@@ -4,9 +4,9 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>494</x>
+      <x>437</x>
       <y>38</y>
-      <w>475</w>
+      <w>589</w>
       <h>323</h>
     </coordinates>
     <panel_attributes>template=T: typename
@@ -16,7 +16,7 @@
 # m_polynomial: T
 # m_crcInit: T
 --
-+crc(): T
++computeCrc(uint8_t *, size_t): T
 +init(): void
 /#reflectData(): uint8_t/
 /#reflectRemainder(): T/</panel_attributes>
