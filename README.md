@@ -17,7 +17,7 @@ Library for computing CRC codes both in C and C++
 To build the release, first we launch CMake and then make.
 
 ```console
-cmake . -H. -Bbuild
+cmake . -H. -B build
 cd build
 make -j3
 ```
@@ -25,7 +25,7 @@ make -j3
 All in one line:
 
 ```console
-cmake . -H. -Bbuild; cd build; make -j3; cd ..
+cmake . -H. -B build; cd build; make -j3; cd ..
 ```
 
 ### Unitary Testing
@@ -35,7 +35,7 @@ The unit tests will be launched using **ctest**
 To build the unitary tests, first we launch CMake with the UTEST custom option and then make.
 
 ```console
-cmake . -DUTEST=ON -H. -Bbuildtest
+cmake . -DUTEST=ON -H. -B buildtest
 cd buildtest
 make -j3
 ```
@@ -61,10 +61,14 @@ ctest -T memcheck -VV
 All in one line:
 
 ```console
-cmake . -DUTEST=ON -H. -Bbuildtest; cd buildtest; make -j3 && ctest -VV; cd ..
+cmake . -DUTEST=ON -H. -B buildtest; cd buildtest; make -j3 && ctest -VV; cd ..
 ```
 
 ## REFERENCES
 
-- Online CRC-8 CRC-16 CRC-32 Calculator https://crccalc.com/
-https://barrgroup.com/embedded-systems/how-to/crc-calculation-c-code
+- [Online CRC-8 CRC-16 CRC-32 Calculator](https://crccalc.com/)
+- [Barr Group. CRC Series, Part 3: CRC Implementation Code in C/C++](https://barrgroup.com/embedded-systems/how-to/crc-calculation-c-code)
+
+## TBD.
+
+- Change Makefile option for unit testing from custom UTEST to using CMAKE_BUILD_TYPE with a custom build type called unitary testing or so. <https://stackoverflow.com/questions/48754619/what-are-cmake-build-type-debug-release-relwithdebinfo-and-minsizerel>
