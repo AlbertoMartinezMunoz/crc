@@ -45,5 +45,10 @@ if(UTEST)
 	add_subdirectory("${PROJECT_SOURCE_DIR}/external/gtest")
 	add_subdirectory(tests)
 endif()
-add_subdirectory(src)
+
+# Adding modules to be linked either by the application
+add_library(libcrc include/crc/crc.h include/crc/crc16usb.h)
+target_include_directories(libcrc PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)
+target_sources(libcrc PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include/crc/crc.h)
+set_target_properties(libcrc PROPERTIES LINKER_LANGUAGE CXX)
 
