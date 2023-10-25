@@ -3,29 +3,39 @@ Library for computing CRC codes both in C and C++
 
 ## FOLDER STRUCTURE
 
-./         Makefile and configure scripts.
-./build*   Used for storing build results. Must not be checked into source control.
-./src      Main compilable source location.
-./include  Directory for public headers.
-./tests    Directory for tests.
-./external Directory for packages/projects to be used by the project, but not edited as part of the project.
+- ./         Makefile and configure scripts.
+- ./build*   Used for storing build results. Must not be checked into source control.
+- ./src      Main compilable source location.
+- ./include  Directory for public headers.
+- ./tests    Directory for tests.
+- ./external Directory for packages/projects to be used by the project, but not edited as part of the project.
+- ./doc      Directory for documentation files
 
 ## BUILD
 
-### Release
+### Setup
 
-To build the release, first we launch CMake and then make.
+#### Google Test
+
+Google test is added to the git repo as a git submodule, so remember to clone the repository with the `--recurse-submodules` option.
 
 ```console
-cmake . -H. -B build
-cd build
-make -j3
+$ git submodule add https://github.com/google/googletest.git ./vendor/gtest
 ```
 
-All in one line:
+Also if we are using C++20 in our project, we have to ensure that C++20 is used adding the following line in the root CMakeList file
+
+```cmake
+set(CMAKE_CXX_STANDARD 20)
+```
+
+#### Valgrind
+
+Valgrind will be using in the unitary testing to check there are not memory leaks.
 
 ```console
-cmake . -H. -B build; cd build; make -j3; cd ..
+sudo apt-get update
+sudo apt-get -y install valgrind
 ```
 
 ### Unitary Testing
@@ -62,6 +72,22 @@ All in one line:
 
 ```console
 cmake . -DUTEST=ON -H. -B buildtest; cd buildtest; make -j3 && ctest -VV; cd ..
+```
+
+### Release
+
+To build the release, first we launch CMake and then make.
+
+```console
+cmake . -H. -B build
+cd build
+make -j3
+```
+
+All in one line:
+
+```console
+cmake . -H. -B build; cd build; make -j3; cd ..
 ```
 
 ## REFERENCES
