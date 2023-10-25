@@ -1,5 +1,5 @@
-project(CRC CXX)
 cmake_minimum_required(VERSION 3.1...3.14)
+project(CRC CXX)
 
 option(UTEST "Compile unitary test" OFF)
 
@@ -45,5 +45,10 @@ if(UTEST)
 	add_subdirectory("${PROJECT_SOURCE_DIR}/external/gtest")
 	add_subdirectory(tests)
 endif()
-add_subdirectory(src)
+
+# Adding modules to be linked either by the application
+add_library(crc include/crc/crc.h include/crc/crc16usb.h)
+target_include_directories(crc PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)
+target_sources(crc PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include/crc/crc.h)
+set_target_properties(crc PROPERTIES LINKER_LANGUAGE CXX)
 
