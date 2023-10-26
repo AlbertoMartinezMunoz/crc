@@ -3,7 +3,12 @@ Library for computing CRC codes both in C and C++
 
 ## TABLE OF CRC ALGORITHMS
 
-<span style="font-size: xx-small; ">
+<style scoped>
+table {
+  font-size: 13px;
+}
+</style>
+
 | Algorithm          | CRC Type | Result     | Check      | Poly       | Init       | RefIn  | RefOut | XorOut     |
 |:-------------------|:---------|:-----------|:-----------|:-----------|:-----------|:-------|:-------|:-----------|
 | CRC-8              | uint8_t  | 0xF4       | 0xF4       | 0x07       | 0x00000000 | false  | false  | 0x00       |
@@ -49,7 +54,6 @@ Library for computing CRC codes both in C and C++
 | CRC-32C            | uint32_t | 0xE3069283 | 0xE3069283 | 0x1EDC6F41 | 0xFFFFFFFF | true   | true   | 0xFFFFFFFF |
 | CRC-32D            | uint32_t | 0x87315576 | 0x87315576 | 0xA833982B | 0xFFFFFFFF | true   | true   | 0xFFFFFFFF |
 | CRC-32Q            | uint32_t | 0x3010BF7F | 0x3010BF7F | 0x814141AB | 0x00000000 | false  | false  | 0x00000000 |
-<\span>
 
 ## FOLDER STRUCTURE
 
