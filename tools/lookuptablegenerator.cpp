@@ -71,6 +71,9 @@ static error_t parse_opt (int key, char *arg, struct argp_state *state)
 
 static struct argp argp = {options, parse_opt, args_doc, doc,0,0,0};
 
+uint32_t crcTable[256];
+void crcInit(CrcType_t crcType, uint32_t polynomial);
+
 int
 main (int argc, char **argv)
 {
@@ -80,5 +83,60 @@ main (int argc, char **argv)
     argp_parse(&argp, argc, argv, 0, 0, &arguments);
 
     printf("Arguments: p = %u, crc = % d\r\n", arguments.polynomial, arguments.crcType);
+
+    crcInit(arguments.crcType, arguments.polynomial);
+
+    for(int i = 0; i < 256; i++)
+    {
+        printf("0x%04X, ", crcTable[i]);
+        if((i + 1 )%8 == 0)
+            printf("\r\n");
+    }
 }
 
+
+
+
+/*********************************************************************
+ *
+ * Function:    crcInit()
+ *
+ * Description: Populate the partial CRC lookup table.
+ *
+ * Notes:		This function must be rerun any time the CRC standard
+ *				is changed.  If desired, it can be run "offline" and
+ *				the table results stored in an embedded system's ROM.
+ *
+ * Returns:		None defined.
+ *
+ *********************************************************************/
+void crcInit(CrcType_t crcType, uint32_t polynomial)
+{
+    (void)crcType;
+    uint16_t remainder;
+    int dividend;
+    unsigned char bit;
+    int8_t WIDTH = 16;
+    uint16_t TOPBIT = (1 << (WIDTH - 1));
+
+    for (dividend = 0; dividend < 256; ++dividend)
+    {
+        remainder = dividend << (WIDTH - 8);
+        for (bit = 8; bit > 0; --bit)
+        {
+            if (remainder & TOPBIT)
+            {
+                remainder = (remainder << 1) ^ polynomial;
+            } else
+            {
+                remainder = (remainder << 1);
+            }
+        }
+
+        /*
+         * Store the result into the table.
+         */
+        crcTable[dividend] = remainder;
+    }
+
+}   /* crcInit() */
