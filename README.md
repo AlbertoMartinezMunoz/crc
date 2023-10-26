@@ -1,13 +1,13 @@
-# CRC
-Library for computing CRC codes both in C and C++
-
-## TABLE OF CRC ALGORITHMS
-
 <style scoped>
 table {
   font-size: 13px;
 }
 </style>
+
+# CRC
+Library for computing CRC codes both in C and C++
+
+## TABLE OF CRC ALGORITHMS
 
 | Algorithm          | CRC Type | Result     | Check      | Poly       | Init       | RefIn  | RefOut | XorOut     |
 |:-------------------|:---------|:-----------|:-----------|:-----------|:-----------|:-------|:-------|:-----------|
