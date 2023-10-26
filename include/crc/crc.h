@@ -67,8 +67,6 @@ protected:
         return (reflection);
     }
 
-private:
-
     /**
      * This function will reflect the tmp data when computing the CRC if needed
      * by the concrete standard
@@ -85,7 +83,6 @@ private:
      */
     virtual T reflectRemainder(T remainder) = 0;
 
-protected:
     const std::size_t m_typeBits = (8 * sizeof(T));
 
 private:
