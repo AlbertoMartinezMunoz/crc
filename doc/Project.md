@@ -4,7 +4,7 @@
 
 | Algorithm          | CRC Type | Result     | Check      | Poly       | Init       | RefIn  | RefOut | XorOut     |
 |:-------------------|:---------|:-----------|:-----------|:-----------|:-----------|:-------|:-------|:-----------|
-| CRC-8              | uint8_t  | 0xF4       | 0xF4       | 0x07       | 0x00000000 | false  | false  | 0x00       |
+| CRC-8              | uint8_t  | 0xF4       | 0xF4       | 0x07       | 0x00       | false  | false  | 0x00       |
 | CRC-8/CDMA2000     | uint8_t  | 0xDA       | 0xDA       | 0x9B       | 0xFF       | false  | false  | 0x00       |
 | CRC-8/DARC         | uint8_t  | 0x15       | 0x15       | 0x39       | 0x00       | true   | true   | 0x00       |
 | CRC-8/DVB-S2       | uint8_t  | 0xBC       | 0xBC       | 0xD5       | 0x00       | false  | false  | 0x00       |
