@@ -1,83 +1,87 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.3">
-  <zoom_level>19</zoom_level>
+  <zoom_level>10</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>437</x>
-      <y>38</y>
-      <w>589</w>
-      <h>323</h>
+      <x>220</x>
+      <y>150</y>
+      <w>320</w>
+      <h>240</h>
     </coordinates>
     <panel_attributes>template=T: typename
 /Crc/
 --
-# m_lookUpTable: T[256]
-# m_polynomial: T
-# m_crcInit: T
+# m_lookUpTable: T*
+# m_finalXorRemainder: T
+# m_initialRemainder: T
+# m_typeBits: size_t
 --
-+computeCrc(uint8_t *, size_t): T
-+init(): void
-/#reflectData(): uint8_t/
-/#reflectRemainder(): T/</panel_attributes>
+# Crc(T*: lookupTable, 
+          T: initialRemainder, 
+          T: finalXorRemainder)
++ computeCrc(uint8_t *, size_t): T
++ init(): void
+/# reflectData(): uint8_t/
+/# reflectRemainder(T: remainder): T/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>266</x>
-      <y>494</y>
-      <w>380</w>
-      <h>228</h>
+      <x>60</x>
+      <y>460</y>
+      <w>280</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>Crc16USB
 --
-# m_lookUpTable: T[256]
-# m_polynomial: T
-# m_crcInit: T
+- m_lookUpTable: T[256]
+- m_finalXorValue: T
+- m_initialRemainder: T
 --
-#reflectData(): uint8_t
-#reflectRemainder(): T</panel_attributes>
+# reflectData(uint8_t: data): uint8_t
+# reflectRemainder(T: remainder): T</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>190</x>
+      <y>380</y>
+      <w>190</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>170.0;10.0;170.0;50.0;10.0;50.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>380</y>
+      <w>190</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;170.0;50.0;170.0;80.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>722</x>
-      <y>494</y>
-      <w>380</w>
-      <h>228</h>
+      <x>380</x>
+      <y>460</y>
+      <w>280</w>
+      <h>120</h>
     </coordinates>
-    <panel_attributes>Crc...
+    <panel_attributes>CrcXX...
 --
-# m_lookUpTable: T[256]
-# m_polynomial: T
-# m_crcInit: T
+- m_lookUpTable: T[256]
+- m_finalXorValue: T
+- m_initialRemainder: T
 --
-/#reflectData(): uint8_t/
-/#reflectRemainder(): T/</panel_attributes>
+# reflectData(uint8_t: data): uint8_t
+# reflectRemainder(T: remainder): T</panel_attributes>
     <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>437</x>
-      <y>342</y>
-      <w>285</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>130.0;10.0;130.0;50.0;10.0;50.0;10.0;80.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>665</x>
-      <y>342</y>
-      <w>285</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0;130.0;50.0;130.0;80.0</additional_attributes>
   </element>
 </diagram>

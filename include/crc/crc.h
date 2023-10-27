@@ -20,7 +20,7 @@ public:
      */
     T computeCrc(const uint8_t *buffer, const std::size_t size)
     {
-        uint16_t remainder = 0xFFFF;
+        T remainder = m_initialRemainder;
         uint8_t data;
         std::size_t byte;
 
@@ -41,8 +41,9 @@ protected:
      * @param finalXorRemainder  Concrete standard value to xor with the CRC
      *                           before returning it
      */
-    Crc(const T *lookupTable, const T finalXorRemainder) :
+    Crc(const T *lookupTable, const T initialRemainder,  const T finalXorRemainder) :
         m_lookupTable(lookupTable),
+        m_initialRemainder(initialRemainder),
         m_finalXorRemainder(finalXorRemainder)
     {}
 
@@ -87,7 +88,7 @@ protected:
 
 private:
     const T *m_lookupTable;
-
+    const T m_initialRemainder;
     const T m_finalXorRemainder;
 };
 
