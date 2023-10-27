@@ -151,7 +151,12 @@ int main (int argc, char **argv)
     if(arguments.shouldInvertOutput)
         reflectRemainder = "        return Crc<" + classType + ">::reflect(remainder, Crc::m_typeBits);\r\n";
 
-    lookupTable = new LookupTable<uint16_t>(arguments.polynomial);
+    if(arguments.width == 8)
+        lookupTable = new LookupTable<uint8_t>(arguments.polynomial);
+    if(arguments.width == 8)
+        lookupTable = new LookupTable<uint16_t>(arguments.polynomial);
+    else
+        lookupTable = new LookupTable<uint32_t>(arguments.polynomial);
 
     lookupTable->crcInit();
     lookupTable->writeTable(table);
