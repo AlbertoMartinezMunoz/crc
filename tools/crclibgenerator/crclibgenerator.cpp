@@ -153,7 +153,7 @@ int main (int argc, char **argv)
 
     if(arguments.width == 8)
         lookupTable = new LookupTable<uint8_t>(arguments.polynomial);
-    if(arguments.width == 8)
+    else if(arguments.width == 16)
         lookupTable = new LookupTable<uint16_t>(arguments.polynomial);
     else
         lookupTable = new LookupTable<uint32_t>(arguments.polynomial);
@@ -229,7 +229,7 @@ int main (int argc, char **argv)
               "    const uint8_t m_checkBuffer02[9] = {0x41, 0x42, 0x43, 0x44, 0x45,\r\n" +
               "                                        0x46, 0x47, 0x48, 0x49};\r\n" +
               "    const " + classType + " m_checkBuffer01Crc = " + std::to_string(arguments.check) + ";\r\n" +
-              "    const " + classType + " m_checkBuffer02Crc = 0x51AE;\r\n" +
+              "    const " + classType + " m_checkBuffer02Crc = 0x51;\r\n" +
               "};\r\n" +
               "\r\n" +
               "TEST_F(" + className + "Test, crc01)\r\n" +
