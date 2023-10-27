@@ -11,3 +11,9 @@ add_executable(crc16usbtest crc16usbtest.cpp)
 target_link_libraries(crc16usbtest gtest gtest_main crc)
 add_test(NAME crc16usbtest COMMAND crc16usbtest)
 set_target_properties(crc16usbtest PROPERTIES FOLDER test)
+
+# crc32test
+add_executable(crc32test crc32test.cpp)
+target_link_libraries(crc32test gtest gtest_main crc)
+add_test(NAME crc32test COMMAND crc32test)
+set_target_properties(crc32test PROPERTIES FOLDER test)
