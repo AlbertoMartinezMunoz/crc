@@ -110,7 +110,7 @@ The new CRC class should implement the Crc class and provide the values for:
 
 ![Image cannot be displayed](./doc/architecture.png "CRC UML. Template Desing Pattern")
 
-**The lookup table can be generated using the 'lookup-table-generator' given the CRC standard and the generator polynomial.**
+*The lookup table can be generated using the 'lookup-table-generator' given the CRC standard and the generator polynomial.*
 
 ### Table of CRC Algorithms
 
