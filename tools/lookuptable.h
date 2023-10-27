@@ -4,11 +4,31 @@
 #include <cstdint>
 #include <stdio.h>
 
-template<typename T>
-class LookupTable
+class ILookupTable
 {
 public:
-    void crcInit(uint32_t polynomial)
+    /**
+     * This function must be rerun any time the lookup table for a new CRC
+     * standard should be computed
+     */
+    virtual void crcInit() = 0;
+
+    /**
+     * This function will print the lookup table in the terminal
+     */
+    virtual void printTable() = 0;
+};
+
+template<typename T>
+class LookupTable : public ILookupTable
+{
+public:
+    LookupTable(T polynomial) : ILookupTable()
+    {
+        m_polynomial = polynomial;
+    }
+
+    void crcInit() override
     {
         T remainder;
         int dividend;
@@ -22,7 +42,7 @@ public:
             for (bit = 8; bit > 0; --bit)
             {
                 if (remainder & crcTopBit)
-                    remainder = (remainder << 1) ^ polynomial;
+                    remainder = (remainder << 1) ^ m_polynomial;
                 else
                     remainder = (remainder << 1);
             }
@@ -30,7 +50,7 @@ public:
         }
     }
 
-    void printTable()
+    void printTable() override
     {
         for(int i = 0; i < 256; i++)
         {
@@ -41,6 +61,7 @@ public:
     }
 
 private:
+    T m_polynomial;
     T m_crcTable[256];
 };
 

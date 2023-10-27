@@ -36,7 +36,7 @@ static struct argp_option options[] =
 /**
  * Parse a single option.
  * @param key
- * @param arg
+ * @param arg   Holds the argument value
  * @param state
  * @return
  */
@@ -75,29 +75,26 @@ static struct argp argp = {options, parse_opt, args_doc, doc,0,0,0};
 
 int main (int argc, char **argv)
 {
-    (void)argc;(void)argv;
     struct arguments arguments;
+    ILookupTable *lookupTable;
 
     argp_parse(&argp, argc, argv, 0, 0, &arguments);
 
     switch (arguments.crcType)
     {
         case CRC8:
-            LookupTable<uint8_t> lookuptable8;
-            lookuptable8.crcInit(arguments.polynomial);
-            lookuptable8.printTable();
+            lookupTable = new LookupTable<uint8_t>(arguments.polynomial);
             break;
         case CRC16:
-            LookupTable<uint16_t> lookuptable16;
-            lookuptable16.crcInit(arguments.polynomial);
-            lookuptable16.printTable();
+            lookupTable = new LookupTable<uint16_t>(arguments.polynomial);
             break;
         case CRC32:
-            LookupTable<uint32_t> lookuptable32;
-            lookuptable32.crcInit(arguments.polynomial);
-            lookuptable32.printTable();
+            lookupTable = new LookupTable<uint32_t>(arguments.polynomial);
             break;
     }
+
+    lookupTable->crcInit();
+    lookupTable->printTable();
 }
 
 
