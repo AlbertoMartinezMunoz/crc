@@ -80,8 +80,6 @@ int main (int argc, char **argv)
 
     argp_parse(&argp, argc, argv, 0, 0, &arguments);
 
-    printf("Arguments: p = %u, crc = % d\r\n", arguments.polynomial, arguments.crcType);
-
     switch (arguments.crcType)
     {
         case CRC8:

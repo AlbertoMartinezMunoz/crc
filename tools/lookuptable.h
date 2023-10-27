@@ -13,43 +13,35 @@ public:
         T remainder;
         int dividend;
         unsigned char bit;
-        int8_t WIDTH = 16;
-        T TOPBIT = (1 << (WIDTH - 1));
+        int8_t crcWidth = sizeof(T) * 8;
+        T crcTopBit = (1 << (crcWidth - 1));
 
         for (dividend = 0; dividend < 256; ++dividend)
         {
-            remainder = dividend << (WIDTH - 8);
+            remainder = dividend << (crcWidth - 8);
             for (bit = 8; bit > 0; --bit)
             {
-                if (remainder & TOPBIT)
-                {
+                if (remainder & crcTopBit)
                     remainder = (remainder << 1) ^ polynomial;
-                } else
-                {
+                else
                     remainder = (remainder << 1);
-                }
             }
-
-            /*
-             * Store the result into the table.
-             */
-            crcTable[dividend] = remainder;
+            m_crcTable[dividend] = remainder;
         }
-
-    }   /* crcInit() */
+    }
 
     void printTable()
     {
         for(int i = 0; i < 256; i++)
         {
-            printf("0x%04X, ", crcTable[i]);
+            printf("0x%04X, ", m_crcTable[i]);
             if((i + 1 )%8 == 0)
                 printf("\r\n");
         }
     }
 
 private:
-    T crcTable[256];
+    T m_crcTable[256];
 };
 
 #endif //CRC_LOOKUPTABLE_H
