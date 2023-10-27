@@ -29,7 +29,7 @@ static char args_doc[] = "[CRC8|CRC16|CRC32]";
 
 static struct argp_option options[] =
 {
-        {"polinomial", 'p', "polinomial", 0, "Hexadeciaml integer. Polinomial used for calculating the CRC.", 0},
+        {"polynomial", 'p', "polynomial", 0, "Hexadecimal integer. Polynomial used for calculating the CRC.", 0},
         {0,            0,   0, 0, 0,                                                               0}
 };
 
