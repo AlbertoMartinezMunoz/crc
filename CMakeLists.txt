@@ -48,6 +48,7 @@ endif()
 
 # Adding modules to be linked either by the application
 add_library(crc include/crc/crc.h include/crc/crc16usb.h)
+add_subdirectory(tools)
 target_include_directories(crc PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)
 target_sources(crc PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include/crc/crc.h)
 set_target_properties(crc PROPERTIES LINKER_LANGUAGE CXX)
