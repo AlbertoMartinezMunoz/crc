@@ -9,15 +9,10 @@ class ILookupTable
 {
 public:
     /**
-     * This function must be rerun any time the lookup table for a new CRC
-     * standard should be computed
+     * This function will print the lookup table in a string
+     * @param table string which will hold the lookup table
      */
-    virtual void crcInit() = 0;
-
-    /**
-     * This function will print the lookup table in the terminal
-     */
-    virtual void writeTable(std::string &table) = 0;
+    virtual void createTable(std::string &table) = 0;
 };
 
 template<typename T>
@@ -29,8 +24,9 @@ public:
         m_polynomial = polynomial;
     }
 
-    void crcInit() override
+    void createTable(std::string &table) override
     {
+        table = "            ";
         T remainder;
         int dividend;
         unsigned char bit;
@@ -47,37 +43,28 @@ public:
                 else
                     remainder = (remainder << 1);
             }
-            m_crcTable[dividend] = remainder;
-        }
-    }
-
-    void writeTable(std::string &table) override
-    {
-        char formatStr[16], tableValue[16];
-        std::string tableValueStr;
-        table = "            ";
-
-        sprintf(formatStr, "0x%%0%luX", sizeof(T) * 2);
-
-        for(int i = 0; i < 256; i++)
-        {
-            sprintf(tableValue, formatStr, m_crcTable[i]);
-            tableValueStr = tableValue;
-            if((i + 1 )%8 == 0)
-            {
-                if(i == 255)
-                    table += tableValueStr;
-                else
-                    table += tableValueStr + ",\r\n            ";
-            }
-            else
-                table += tableValueStr + ", ";
+            addValueToTable(table, remainder, dividend);
         }
     }
 
 private:
     T m_polynomial;
     T m_crcTable[256];
+
+    void addValueToTable(std::string &table, T value, int index)
+    {
+        char formatStr[16], tableValue[16];
+
+        sprintf(formatStr, "0x%%0%luX", sizeof(T) * 2);
+        sprintf(tableValue, formatStr, value);
+        table += std::string(tableValue);
+        if ((index + 1) % 8 == 0)
+        {
+            if (index != 255)
+                table += ",\r\n            ";
+        } else
+            table += ", ";
+    }
 };
 
 #endif //CRC_LOOKUPTABLE_H
