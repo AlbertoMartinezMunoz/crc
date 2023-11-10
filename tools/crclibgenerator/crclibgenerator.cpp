@@ -61,7 +61,7 @@ int main (int argc, char **argv)
     lookupTable->createTable(table);
 
 
-    sprintf(formatStr, "0x%%0%dX", arguments.width >> 3);
+    sprintf(formatStr, "0x%%0%dX", arguments.width >> 2);
     sprintf(xorOutputStr, formatStr, arguments.xorOutput);
     sprintf(initialStr, formatStr, arguments.initial);
 
