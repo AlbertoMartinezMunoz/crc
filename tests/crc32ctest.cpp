@@ -1,15 +1,15 @@
-#include <crc/crc32.h>
+#include <crc/crc32c.h>
 
 #include <memory>
 
 #include <gtest/gtest.h>
 
-class Crc32Test : public ::testing::Test
+class Crc32CTest : public ::testing::Test
 {
 public:
     virtual void SetUp()
     {
-        m_crc = std::make_unique<Crc32>();
+        m_crc = std::make_unique<Crc32C>();
     }
 
     virtual void TearDown()
@@ -23,16 +23,16 @@ protected:
                                         0x36, 0x37, 0x38, 0x39};
     const uint8_t m_checkBuffer02[9] = {0x41, 0x42, 0x43, 0x44, 0x45,
                                         0x46, 0x47, 0x48, 0x49};
-    const uint32_t m_checkBuffer01Crc = 0xCBF43926;
+    const uint32_t m_checkBuffer01Crc = 0xE3069283;
     const uint32_t m_checkBuffer02Crc = 0x51;
 };
 
-TEST_F(Crc32Test, crc01)
+TEST_F(Crc32CTest, crc01)
 {
     EXPECT_EQ(m_crc->computeCrc(m_checkBuffer01, sizeof(m_checkBuffer01)), m_checkBuffer01Crc);
 }
 
-TEST_F(Crc32Test, DISABLED_crc02)
+TEST_F(Crc32CTest, DISABLED_crc02)
 {
     EXPECT_EQ(m_crc->computeCrc(m_checkBuffer02, sizeof(m_checkBuffer02)), m_checkBuffer02Crc);
 }

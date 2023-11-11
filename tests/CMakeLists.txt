@@ -203,3 +203,57 @@ add_executable(crc32test crc32test.cpp)
 target_link_libraries(crc32test gtest gtest_main crc)
 add_test(NAME crc32test COMMAND crc32test)
 set_target_properties(crc32test PROPERTIES FOLDER test)
+
+# crc32bzip2test
+add_executable(crc32bzip2test crc32bzip2test.cpp)
+target_link_libraries(crc32bzip2test gtest gtest_main crc)
+add_test(NAME crc32bzip2test COMMAND crc32bzip2test)
+set_target_properties(crc32bzip2test PROPERTIES FOLDER test)
+
+# crc32jamcrctest
+add_executable(crc32jamcrctest crc32jamcrctest.cpp)
+target_link_libraries(crc32jamcrctest gtest gtest_main crc)
+add_test(NAME crc32jamcrctest COMMAND crc32jamcrctest)
+set_target_properties(crc32jamcrctest PROPERTIES FOLDER test)
+
+# crc32mpeg2test
+add_executable(crc32mpeg2test crc32mpeg2test.cpp)
+target_link_libraries(crc32mpeg2test gtest gtest_main crc)
+add_test(NAME crc32mpeg2test COMMAND crc32mpeg2test)
+set_target_properties(crc32mpeg2test PROPERTIES FOLDER test)
+
+# crc32posixtest
+add_executable(crc32posixtest crc32posixtest.cpp)
+target_link_libraries(crc32posixtest gtest gtest_main crc)
+add_test(NAME crc32posixtest COMMAND crc32posixtest)
+set_target_properties(crc32posixtest PROPERTIES FOLDER test)
+
+# crc32satatest
+add_executable(crc32satatest crc32satatest.cpp)
+target_link_libraries(crc32satatest gtest gtest_main crc)
+add_test(NAME crc32satatest COMMAND crc32satatest)
+set_target_properties(crc32satatest PROPERTIES FOLDER test)
+
+# crc32xfertest
+add_executable(crc32xfertest crc32xfertest.cpp)
+target_link_libraries(crc32xfertest gtest gtest_main crc)
+add_test(NAME crc32xfertest COMMAND crc32xfertest)
+set_target_properties(crc32xfertest PROPERTIES FOLDER test)
+
+# crc32ctest
+add_executable(crc32ctest crc32ctest.cpp)
+target_link_libraries(crc32ctest gtest gtest_main crc)
+add_test(NAME crc32ctest COMMAND crc32ctest)
+set_target_properties(crc32ctest PROPERTIES FOLDER test)
+
+# crc32dtest
+add_executable(crc32dtest crc32dtest.cpp)
+target_link_libraries(crc32dtest gtest gtest_main crc)
+add_test(NAME crc32dtest COMMAND crc32dtest)
+set_target_properties(crc32dtest PROPERTIES FOLDER test)
+
+# crc32qtest
+add_executable(crc32qtest crc32qtest.cpp)
+target_link_libraries(crc32qtest gtest gtest_main crc)
+add_test(NAME crc32qtest COMMAND crc32qtest)
+set_target_properties(crc32qtest PROPERTIES FOLDER test)

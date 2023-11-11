@@ -1,25 +1,25 @@
-#ifndef CRC_CRC32_H
-#define CRC_CRC32_H
+#ifndef CRC_CRC32MPEG2_H
+#define CRC_CRC32MPEG2_H
 
 #include <crc/crc.h>
 
-class Crc32 : public Crc<uint32_t>
+class Crc32Mpeg2 : public Crc<uint32_t>
 {
 public:
     /**
      * Will construct a CRC class of type CRC16/USB
      */
-    Crc32() : Crc<uint32_t>(m_lookupTable, m_initialRemainder, m_finalXorValue) {}
+    Crc32Mpeg2() : Crc<uint32_t>(m_lookupTable, m_initialRemainder, m_finalXorValue) {}
 
 private:
     uint8_t reflectData(uint8_t data) override
     {
-        return Crc<uint32_t>::reflect(data, 8);
+        return data;
     }
 
     uint32_t reflectRemainder(uint32_t remainder) override
     {
-        return Crc<uint32_t>::reflect(remainder, Crc::m_typeBits);
+        return remainder;
     }
 
 private:
@@ -57,9 +57,9 @@ private:
             0x89B8FD09, 0x8D79E0BE, 0x803AC667, 0x84FBDBD0, 0x9ABC8BD5, 0x9E7D9662, 0x933EB0BB, 0x97FFAD0C,
             0xAFB010B1, 0xAB710D06, 0xA6322BDF, 0xA2F33668, 0xBCB4666D, 0xB8757BDA, 0xB5365D03, 0xB1F740B4 };
 
-    static const uint32_t m_finalXorValue = 0xFFFFFFFF;
+    static const uint32_t m_finalXorValue = 0x00000000;
     static const uint32_t m_initialRemainder = 0xFFFFFFFF;
 };
 
 
-#endif //CRC_CRC32_H
+#endif //CRC_CRC32MPEG2_H

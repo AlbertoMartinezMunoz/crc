@@ -186,6 +186,17 @@ The new CRC class should implement the Crc class and provide the values for:
 ./build/bin/crc-lib-generator crc16x25 -w 16 -c 0x906E -p 0x1021 -i 0xFFFF -d -o -x 0xFFFF
 ./build/bin/crc-lib-generator crc16xmodem -w 16 -c 0x31C3 -p 0x1021 -i 0x0000 -x 0x0000
 ./build/bin/crc-lib-generator crc16a -w 16 -c 0xBF05 -p 0x1021 -i 0xC6C6 -d -o -x 0x0000
+
+./build/bin/crc-lib-generator crc32 -w 32 -c 0xCBF43926 -p 0x04C11DB7 -i 0xFFFFFFFF -d -o -x 0xFFFFFFFF
+./build/bin/crc-lib-generator crc32bzip2 -w 32 -c 0xFC891918 -p 0x04C11DB7 -i 0xFFFFFFFF -x 0xFFFFFFFF
+./build/bin/crc-lib-generator crc32jamcrc -w 32 -c 0x340BC6D9 -p 0x04C11DB7 -i 0xFFFFFFFF -d -o -x 0x00000000
+./build/bin/crc-lib-generator crc32mpeg2 -w 32 -c 0x0376E6E7 -p 0x04C11DB7 -i 0xFFFFFFFF -x 0x00000000
+./build/bin/crc-lib-generator crc32posix -w 32 -c 0x765E7680 -p 0x04C11DB7 -i 0x00000000 -x 0xFFFFFFFF
+./build/bin/crc-lib-generator crc32sata -w 32 -c 0xCF72AFE8 -p 0x04C11DB7 -i 0x52325032 -x 0x00000000
+./build/bin/crc-lib-generator crc32xfer -w 32 -c 0xBD0BE338 -p 0x000000AF -i 0x00000000 -x 0x00000000
+./build/bin/crc-lib-generator crc32c -w 32 -c 0xE3069283 -p 0x1EDC6F41 -i 0xFFFFFFFF -d -o -x 0xFFFFFFFF
+./build/bin/crc-lib-generator crc32d -w 32 -c 0x87315576 -p 0xA833982B -i 0xFFFFFFFF -d -o -x 0xFFFFFFFF
+./build/bin/crc-lib-generator crc32q -w 32 -c 0x3010BF7F -p 0x814141AB -i 0x00000000 -x 0x00000000
 ```
 
 ## REFERENCES
