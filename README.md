@@ -71,7 +71,7 @@ ctest -T memcheck -VV
 All in one line:
 
 ```console
-cmake . -DUTEST=ON -H. -B buildtest; cd buildtest; make -j3 && ctest -VV; cd ..
+cmake . -DUTEST=ON -H. -B buildtest; cd buildtest; make -j3 && ctest -T memcheck -VV; cd ..
 ```
 
 ### Release
@@ -160,16 +160,7 @@ The new CRC class should implement the Crc class and provide the values for:
 | CRC-32D            | uint32_t | 0x87315576 | 0x87315576 | 0xA833982B | 0xFFFFFFFF | true   | true   | 0xFFFFFFFF |
 | CRC-32Q            | uint32_t | 0x3010BF7F | 0x3010BF7F | 0x814141AB | 0x00000000 | false  | false  | 0x00000000 |
 
-## REFERENCES
-
-- [Online CRC-8 CRC-16 CRC-32 Calculator](https://crccalc.com/)
-- [Barr Group. CRC Series, Part 3: CRC Implementation Code in C/C++](https://barrgroup.com/embedded-systems/how-to/crc-calculation-c-code)
-
-## TBD.
-
-- Change Makefile option for unit testing from custom UTEST to using CMAKE_BUILD_TYPE with a custom build type called unitary testing or so. <https://stackoverflow.com/questions/48754619/what-are-cmake-build-type-debug-release-relwithdebinfo-and-minsizerel>
-
-- Command to generate libs
+### Commands for generate the libs
 
 ```shell
 ./build/bin/crc-lib-generator crc16arc -w 16 -c 0xBB3D -p 0x8005 -i 0x0000 -d -o -x 0x0000
@@ -194,4 +185,14 @@ The new CRC class should implement the Crc class and provide the values for:
 ./build/bin/crc-lib-generator crc16usb -w 16 -c 0xB4C8 -p 0x8005 -i 0xFFFF -d -o -x 0xFFFF
 ./build/bin/crc-lib-generator crc16x25 -w 16 -c 0x906E -p 0x1021 -i 0xFFFF -d -o -x 0xFFFF
 ./build/bin/crc-lib-generator crc16xmodem -w 16 -c 0x31C3 -p 0x1021 -i 0x0000 -x 0x0000
+./build/bin/crc-lib-generator crc16a -w 16 -c 0xBF05 -p 0x1021 -i 0xC6C6 -d -o -x 0x0000
 ```
+
+## REFERENCES
+
+- [Online CRC-8 CRC-16 CRC-32 Calculator](https://crccalc.com/)
+- [Barr Group. CRC Series, Part 3: CRC Implementation Code in C/C++](https://barrgroup.com/embedded-systems/how-to/crc-calculation-c-code)
+
+## TBD.
+
+- Change Makefile option for unit testing from custom UTEST to using CMAKE_BUILD_TYPE with a custom build type called unitary testing or so. <https://stackoverflow.com/questions/48754619/what-are-cmake-build-type-debug-release-relwithdebinfo-and-minsizerel>

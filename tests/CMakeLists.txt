@@ -192,6 +192,12 @@ target_link_libraries(crc16xmodemtest gtest gtest_main crc)
 add_test(NAME crc16xmodemtest COMMAND crc16xmodemtest)
 set_target_properties(crc16xmodemtest PROPERTIES FOLDER test)
 
+# crc16atest
+add_executable(crc16atest crc16atest.cpp)
+target_link_libraries(crc16atest gtest gtest_main crc)
+add_test(NAME crc16atest COMMAND crc16atest)
+set_target_properties(crc16atest PROPERTIES FOLDER test)
+
 # crc32test
 add_executable(crc32test crc32test.cpp)
 target_link_libraries(crc32test gtest gtest_main crc)
