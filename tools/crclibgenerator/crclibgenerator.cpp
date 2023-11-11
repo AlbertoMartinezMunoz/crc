@@ -24,14 +24,12 @@ int main (int argc, char **argv)
     std::string libTestCheck;
     ILookupTable *lookupTable;
     struct arguments arguments;
-    char formatStr[16], xorOutputStr[8], initialStr[8];
+    char formatStr[16], xorOutputStr[16], initialStr[16], checkStr[16];
 
     arguments.shouldInvertOutput = false;
     arguments.shouldInvertData = false;
 
     argp_parse(&argp, argc, argv, 0, 0, &arguments);
-    printf("Arguments: poly = 0x%X, width = %u, ini = 0x%X, id = %d, io = %d, xOut = 0x%X, check = 0x%X lib = '%s'\r\n", arguments.polynomial,
-           arguments.width, arguments.initial, arguments.shouldInvertData, arguments.shouldInvertOutput,arguments.xorOutput,arguments.check ,arguments.libName);
 
     libPath = arguments.libName;
     libPath+=".h";
@@ -64,6 +62,7 @@ int main (int argc, char **argv)
     sprintf(formatStr, "0x%%0%dX", arguments.width >> 2);
     sprintf(xorOutputStr, formatStr, arguments.xorOutput);
     sprintf(initialStr, formatStr, arguments.initial);
+    sprintf(checkStr, formatStr, arguments.check);
 
     libText = "#ifndef CRC_" + libNameUpper + "_H\r\n" +
               "#define CRC_" + libNameUpper + "_H\r\n" +
@@ -130,7 +129,7 @@ int main (int argc, char **argv)
               "                                        0x36, 0x37, 0x38, 0x39};\r\n" +
               "    const uint8_t m_checkBuffer02[9] = {0x41, 0x42, 0x43, 0x44, 0x45,\r\n" +
               "                                        0x46, 0x47, 0x48, 0x49};\r\n" +
-              "    const " + classType + " m_checkBuffer01Crc = " + std::to_string(arguments.check) + ";\r\n" +
+              "    const " + classType + " m_checkBuffer01Crc = " + checkStr + ";\r\n" +
               "    const " + classType + " m_checkBuffer02Crc = 0x51;\r\n" +
               "};\r\n" +
               "\r\n" +
