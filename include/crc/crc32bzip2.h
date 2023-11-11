@@ -1,25 +1,25 @@
-#ifndef CRC_CRC32_H
-#define CRC_CRC32_H
+#ifndef CRC_CRC32BZIP2_H
+#define CRC_CRC32BZIP2_H
 
 #include <crc/crc.h>
 
-class Crc32 : public Crc<uint32_t>
+class Crc32Bzip2 : public Crc<uint32_t>
 {
 public:
     /**
      * Will construct a CRC class of type CRC16/USB
      */
-    Crc32() : Crc<uint32_t>(m_lookupTable, m_initialRemainder, m_finalXorValue) {}
+    Crc32Bzip2() : Crc<uint32_t>(m_lookupTable, m_initialRemainder, m_finalXorValue) {}
 
 private:
     uint8_t reflectData(uint8_t data) override
     {
-        return Crc<uint32_t>::reflect(data, 8);
+        return data;
     }
 
     uint32_t reflectRemainder(uint32_t remainder) override
     {
-        return Crc<uint32_t>::reflect(remainder, Crc::m_typeBits);
+        return remainder;
     }
 
 private:
@@ -62,4 +62,4 @@ private:
 };
 
 
-#endif //CRC_CRC32_H
+#endif //CRC_CRC32BZIP2_H
