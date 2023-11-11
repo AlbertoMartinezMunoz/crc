@@ -1,15 +1,15 @@
-#ifndef CRC_CRC16USB_H
-#define CRC_CRC16USB_H
+#ifndef CRC_CRC16MODBUS_H
+#define CRC_CRC16MODBUS_H
 
 #include <crc/crc.h>
 
-class Crc16Usb : public Crc<uint16_t>
+class Crc16Modbus : public Crc<uint16_t>
 {
 public:
     /**
      * Will construct a CRC class of type CRC16/USB
      */
-    Crc16Usb() : Crc<uint16_t>(m_lookupTable, m_initialRemainder, m_finalXorValue) {}
+    Crc16Modbus() : Crc<uint16_t>(m_lookupTable, m_initialRemainder, m_finalXorValue) {}
 
 private:
     uint8_t reflectData(uint8_t data) override
@@ -57,9 +57,9 @@ private:
             0x0220, 0x8225, 0x822F, 0x022A, 0x823B, 0x023E, 0x0234, 0x8231,
             0x8213, 0x0216, 0x021C, 0x8219, 0x0208, 0x820D, 0x8207, 0x0202 };
 
-    static const uint16_t m_finalXorValue = 0xFFFF;
+    static const uint16_t m_finalXorValue = 0x0000;
     static const uint16_t m_initialRemainder = 0xFFFF;
 };
 
 
-#endif //CRC_CRC16USB_H
+#endif //CRC_CRC16MODBUS_H

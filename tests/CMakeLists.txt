@@ -54,11 +54,143 @@ target_link_libraries(crc8rohctest gtest gtest_main crc)
 add_test(NAME crc8rohctest COMMAND crc8rohctest)
 set_target_properties(crc8rohctest PROPERTIES FOLDER test)
 
+# crc8wcdmatest
+add_executable(crc8wcdmatest crc8wcdmatest.cpp)
+target_link_libraries(crc8wcdmatest gtest gtest_main crc)
+add_test(NAME crc8wcdmatest COMMAND crc8wcdmatest)
+set_target_properties(crc8wcdmatest PROPERTIES FOLDER test)
+
+# crc16arctest
+add_executable(crc16arctest crc16arctest.cpp)
+target_link_libraries(crc16arctest gtest gtest_main crc)
+add_test(NAME crc16arctest COMMAND crc16arctest)
+set_target_properties(crc16arctest PROPERTIES FOLDER test)
+
+# crc16augccitttest
+add_executable(crc16augccitttest crc16augccitttest.cpp)
+target_link_libraries(crc16augccitttest gtest gtest_main crc)
+add_test(NAME crc16augccitttest COMMAND crc16augccitttest)
+set_target_properties(crc16augccitttest PROPERTIES FOLDER test)
+
+# crc16buypasstest
+add_executable(crc16buypasstest crc16buypasstest.cpp)
+target_link_libraries(crc16buypasstest gtest gtest_main crc)
+add_test(NAME crc16buypasstest COMMAND crc16buypasstest)
+set_target_properties(crc16buypasstest PROPERTIES FOLDER test)
+
+# crc16ccittfalsetest
+add_executable(crc16ccittfalsetest crc16ccittfalsetest.cpp)
+target_link_libraries(crc16ccittfalsetest gtest gtest_main crc)
+add_test(NAME crc16ccittfalsetest COMMAND crc16ccittfalsetest)
+set_target_properties(crc16ccittfalsetest PROPERTIES FOLDER test)
+
+# crc16cdma2000test
+add_executable(crc16cdma2000test crc16cdma2000test.cpp)
+target_link_libraries(crc16cdma2000test gtest gtest_main crc)
+add_test(NAME crc16cdma2000test COMMAND crc16cdma2000test)
+set_target_properties(crc16cdma2000test PROPERTIES FOLDER test)
+
+# crc16dds110test
+add_executable(crc16dds110test crc16dds110test.cpp)
+target_link_libraries(crc16dds110test gtest gtest_main crc)
+add_test(NAME crc16dds110test COMMAND crc16dds110test)
+set_target_properties(crc16dds110test PROPERTIES FOLDER test)
+
+# crc16dectrtest
+add_executable(crc16dectrtest crc16dectrtest.cpp)
+target_link_libraries(crc16dectrtest gtest gtest_main crc)
+add_test(NAME crc16dectrtest COMMAND crc16dectrtest)
+set_target_properties(crc16dectrtest PROPERTIES FOLDER test)
+
+# crc16dectxtest
+add_executable(crc16dectxtest crc16dectxtest.cpp)
+target_link_libraries(crc16dectxtest gtest gtest_main crc)
+add_test(NAME crc16dectxtest COMMAND crc16dectxtest)
+set_target_properties(crc16dectxtest PROPERTIES FOLDER test)
+
+# crc16dnptest
+add_executable(crc16dnptest crc16dnptest.cpp)
+target_link_libraries(crc16dnptest gtest gtest_main crc)
+add_test(NAME crc16dnptest COMMAND crc16dnptest)
+set_target_properties(crc16dnptest PROPERTIES FOLDER test)
+
+# crc16en13757test
+add_executable(crc16en13757test crc16en13757test.cpp)
+target_link_libraries(crc16en13757test gtest gtest_main crc)
+add_test(NAME crc16en13757test COMMAND crc16en13757test)
+set_target_properties(crc16en13757test PROPERTIES FOLDER test)
+
+# crc16genibustest
+add_executable(crc16genibustest crc16genibustest.cpp)
+target_link_libraries(crc16genibustest gtest gtest_main crc)
+add_test(NAME crc16genibustest COMMAND crc16genibustest)
+set_target_properties(crc16genibustest PROPERTIES FOLDER test)
+
+# crc16kermittest
+add_executable(crc16kermittest crc16kermittest.cpp)
+target_link_libraries(crc16kermittest gtest gtest_main crc)
+add_test(NAME crc16kermittest COMMAND crc16kermittest)
+set_target_properties(crc16kermittest PROPERTIES FOLDER test)
+
+# crc16maximtest
+add_executable(crc16maximtest crc16maximtest.cpp)
+target_link_libraries(crc16maximtest gtest gtest_main crc)
+add_test(NAME crc16maximtest COMMAND crc16maximtest)
+set_target_properties(crc16maximtest PROPERTIES FOLDER test)
+
+# crc16mcrf4xxtest
+add_executable(crc16mcrf4xxtest crc16mcrf4xxtest.cpp)
+target_link_libraries(crc16mcrf4xxtest gtest gtest_main crc)
+add_test(NAME crc16mcrf4xxtest COMMAND crc16mcrf4xxtest)
+set_target_properties(crc16mcrf4xxtest PROPERTIES FOLDER test)
+
+# crc16modbustest
+add_executable(crc16modbustest crc16modbustest.cpp)
+target_link_libraries(crc16modbustest gtest gtest_main crc)
+add_test(NAME crc16modbustest COMMAND crc16modbustest)
+set_target_properties(crc16modbustest PROPERTIES FOLDER test)
+
+# crc16riellotest
+add_executable(crc16riellotest crc16riellotest.cpp)
+target_link_libraries(crc16riellotest gtest gtest_main crc)
+add_test(NAME crc16riellotest COMMAND crc16riellotest)
+set_target_properties(crc16riellotest PROPERTIES FOLDER test)
+
+# crc16t10diftest
+add_executable(crc16t10diftest crc16t10diftest.cpp)
+target_link_libraries(crc16t10diftest gtest gtest_main crc)
+add_test(NAME crc16t10diftest COMMAND crc16t10diftest)
+set_target_properties(crc16t10diftest PROPERTIES FOLDER test)
+
+# crc16teledisktest
+add_executable(crc16teledisktest crc16teledisktest.cpp)
+target_link_libraries(crc16teledisktest gtest gtest_main crc)
+add_test(NAME crc16teledisktest COMMAND crc16teledisktest)
+set_target_properties(crc16teledisktest PROPERTIES FOLDER test)
+
+# crc16tms37157test
+add_executable(crc16tms37157test crc16tms37157test.cpp)
+target_link_libraries(crc16tms37157test gtest gtest_main crc)
+add_test(NAME crc16tms37157test COMMAND crc16tms37157test)
+set_target_properties(crc16tms37157test PROPERTIES FOLDER test)
+
 # crc16usbtest
 add_executable(crc16usbtest crc16usbtest.cpp)
 target_link_libraries(crc16usbtest gtest gtest_main crc)
 add_test(NAME crc16usbtest COMMAND crc16usbtest)
 set_target_properties(crc16usbtest PROPERTIES FOLDER test)
+
+# crc16x25test
+add_executable(crc16x25test crc16x25test.cpp)
+target_link_libraries(crc16x25test gtest gtest_main crc)
+add_test(NAME crc16x25test COMMAND crc16x25test)
+set_target_properties(crc16x25test PROPERTIES FOLDER test)
+
+# crc16xmodemtest
+add_executable(crc16xmodemtest crc16xmodemtest.cpp)
+target_link_libraries(crc16xmodemtest gtest gtest_main crc)
+add_test(NAME crc16xmodemtest COMMAND crc16xmodemtest)
+set_target_properties(crc16xmodemtest PROPERTIES FOLDER test)
 
 # crc32test
 add_executable(crc32test crc32test.cpp)

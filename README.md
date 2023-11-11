@@ -168,3 +168,30 @@ The new CRC class should implement the Crc class and provide the values for:
 ## TBD.
 
 - Change Makefile option for unit testing from custom UTEST to using CMAKE_BUILD_TYPE with a custom build type called unitary testing or so. <https://stackoverflow.com/questions/48754619/what-are-cmake-build-type-debug-release-relwithdebinfo-and-minsizerel>
+
+- Command to generate libs
+
+```shell
+./build/bin/crc-lib-generator crc16arc -w 16 -c 0xBB3D -p 0x8005 -i 0x0000 -d -o -x 0x0000
+./build/bin/crc-lib-generator crc16augccitt -w 16 -c 0xE5CC -p 0x1021 -i 0x1D0F -x 0x0000
+./build/bin/crc-lib-generator crc16buypass -w 16 -c 0xFEE8 -p 0x8005 -i 0x0000 -x 0x0000
+./build/bin/crc-lib-generator crc16ccittfalse -w 16 -c 0x29B1 -p 0x1021 -i 0xFFFF -x 0x0000
+./build/bin/crc-lib-generator crc16cdma2000 -w 16 -c 0x4C06 -p 0xC867 -i 0xFFFF -x 0x0000
+./build/bin/crc-lib-generator crc16dds110 -w 16 -c 0x9ECF -p 0x8005 -i 0x800D -x 0x0000
+./build/bin/crc-lib-generator crc16dectr -w 16 -c 0x007E -p 0x0589 -i 0x0000 -x 0x0001
+./build/bin/crc-lib-generator crc16dectx -w 16 -c 0x007F -p 0x0589 -i 0x0000 -x 0x0000
+./build/bin/crc-lib-generator crc16dnp -w 16 -c 0xEA82 -p 0x3D65 -i 0x0000 -d -o -x 0xFFFF
+./build/bin/crc-lib-generator crc16en13757 -w 16 -c 0xC2B7 -p 0x3D65 -i 0x0000 -x 0xFFFF
+./build/bin/crc-lib-generator crc16genibus -w 16 -c 0xD64E -p 0x1021 -i 0xFFFF -x 0xFFFF
+./build/bin/crc-lib-generator crc16kermit -w 16 -c 0x2189 -p 0x1021 -i 0x0000 -d -o -x 0x0000
+./build/bin/crc-lib-generator crc16maxim -w 16 -c 0x44C2 -p 0x8005 -i 0x0000 -d -o -x 0xFFFF
+./build/bin/crc-lib-generator crc16mcrf4xx -w 16 -c 0x6F91 -p 0x1021 -i 0xFFFF -d -o -x 0x0000
+./build/bin/crc-lib-generator crc16modbus -w 16 -c 0x4B37 -p 0x8005 -i 0xFFFF -d -o -x 0x0000
+./build/bin/crc-lib-generator crc16riello -w 16 -c 0x63D0 -p 0x1021 -i 0xB2AA -d -o -x 0x0000
+./build/bin/crc-lib-generator crc16t10dif -w 16 -c 0xD0DB -p 0x8BB7 -i 0x0000 -x 0x0000
+./build/bin/crc-lib-generator crc16teledisk -w 16 -c 0x0FB3 -p 0xA097 -i 0x0000 -x 0x0000
+./build/bin/crc-lib-generator crc16tms37157 -w 16 -c 0x26B1 -p 0x1021 -i 0x89EC -d -o -x 0x0000
+./build/bin/crc-lib-generator crc16usb -w 16 -c 0xB4C8 -p 0x8005 -i 0xFFFF -d -o -x 0xFFFF
+./build/bin/crc-lib-generator crc16x25 -w 16 -c 0x906E -p 0x1021 -i 0xFFFF -d -o -x 0xFFFF
+./build/bin/crc-lib-generator crc16xmodem -w 16 -c 0x31C3 -p 0x1021 -i 0x0000 -x 0x0000
+```
