@@ -23,7 +23,7 @@ protected:
                                         0x36, 0x37, 0x38, 0x39};
     const uint8_t m_checkBuffer02[9] = {0x41, 0x42, 0x43, 0x44, 0x45,
                                         0x46, 0x47, 0x48, 0x49};
-    const uint8_t m_checkBuffer01Crc = 188;
+    const uint8_t m_checkBuffer01Crc = 0xBC;
     const uint8_t m_checkBuffer02Crc = 0x51;
 };
 

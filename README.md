@@ -163,6 +163,17 @@ The new CRC class should implement the Crc class and provide the values for:
 ### Commands for generate the libs
 
 ```shell
+./build/bin/crc-lib-generator crc8 -w 8 -c 0xF4 -p 0x07 -i 0x00 -x 0x00
+./build/bin/crc-lib-generator crc8cdma2000 -w 8 -c 0xDA -p 0x9B -i 0xFF -x 0x00
+./build/bin/crc-lib-generator crc8darc -w 8 -c 0x15 -p 0x39 -i 0x00 -d -o -x 0x00
+./build/bin/crc-lib-generator crc8dvbs2 -w 8 -c 0xBC -p 0xD5 -i 0x00 -x 0x00
+./build/bin/crc-lib-generator crc8ebu -w 8 -c 0x97 -p 0x1D -i 0xFF -d -o -x 0x00
+./build/bin/crc-lib-generator crc8icode -w 8 -c 0x7E -p 0x1D -i 0xFD -x 0x00
+./build/bin/crc-lib-generator crc8itu -w 8 -c 0xA1 -p 0x07 -i 0x00 -x 0x55
+./build/bin/crc-lib-generator crc8maxim -w 8 -c 0xA1 -p 0x31 -i 0x00 -d -o -x 0x00
+./build/bin/crc-lib-generator crc8rohc -w 8 -c 0xD0 -p 0x07 -i 0xFF -d -o -x 0x00
+./build/bin/crc-lib-generator crc8wcdma -w 8 -c 0x25 -p 0x9B -i 0x00 -d -o -x 0x00
+
 ./build/bin/crc-lib-generator crc16arc -w 16 -c 0xBB3D -p 0x8005 -i 0x0000 -d -o -x 0x0000
 ./build/bin/crc-lib-generator crc16augccitt -w 16 -c 0xE5CC -p 0x1021 -i 0x1D0F -x 0x0000
 ./build/bin/crc-lib-generator crc16buypass -w 16 -c 0xFEE8 -p 0x8005 -i 0x0000 -x 0x0000

@@ -57,8 +57,8 @@ private:
             0x95, 0x0E, 0x38, 0xA3, 0x54, 0xCF, 0xF9, 0x62,
             0x8C, 0x17, 0x21, 0xBA, 0x4D, 0xD6, 0xE0, 0x7B };
 
-    static const uint8_t m_finalXorValue = 0;
-    static const uint8_t m_initialRemainder = 255;
+    static const uint8_t m_finalXorValue = 0x00;
+    static const uint8_t m_initialRemainder = 0xFF;
 };
 
 
